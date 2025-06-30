@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organograma com Conexões</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f8;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #023e8a;
+        }
+
+        .organograma {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .nivel {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            position: relative;
+        }
+
+        .pessoa {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .pessoa img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #0077b6;
+        }
+
+        .pessoa p {
+            margin-top: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Linha central do diretor */
+        .nivel.diretor::after {
+            content: '';
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 2px;
+            background: #0077b6;
+        }
+
+        /* Áreas lado a lado */
+        .areas {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .area {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid #90e0ef;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .area h2 {
+            color: #023e8a;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Linha do gestor e vice */
+        .gestor-vice {
+            display: flex;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* Funcionários */
+        .funcionais {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        /* Cores */
+        .diretor p {
+            color: #0077b6;
+        }
+
+        .gestor p {
+            color: #0096c7;
+        }
+
+        .vice p {
+            color: #00b4d8;
+        }
+
+        .funcional p {
+            color: #48cae4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Organograma Corporativo</h1>
+
+    <div class="organograma">
+
+        <!-- Diretor -->
+        <div class="nivel diretor">
+            <div class="pessoa">
+                <img src="https://via.placeholder.com/100" alt="Diretor">
+                <p>Diretor</p>
+            </div>
+        </div>
+
+        <!-- Áreas -->
+        <div class="areas">
+
+            <!-- Área: Marketing -->
+            <div class="area">
+                <h2>Marketing</h2>
+                <div class="gestor-vice">
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Gestor Marketing">
+                        <p>Gestor</p>
+                    </div>
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Vice Marketing">
+                        <p>Vice</p>
+                    </div>
+                </div>
+                <div class="funcionais">
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 1</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 2</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 3</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 4</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 5</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 6</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 7</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 8</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Área: TI -->
+            <div class="area">
+                <h2>TI</h2>
+                <div class="gestor-vice">
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Gestor TI">
+                        <p>Gestor</p>
+                    </div>
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Vice TI">
+                        <p>Vice</p>
+                    </div>
+                </div>
+                <div class="funcionais">
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 9</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 10</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 11</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 12</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 13</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 14</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 15</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 16</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comunicação -->
+            <div class="area">
+                <h2>Comunicação</h2>
+                <div class="gestor-vice">
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Gestor Comunicação">
+                        <p>Gestor</p>
+                    </div>
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Vice Comunicação">
+                        <p>Vice</p>
+                    </div>
+                </div>
+                <div class="funcionais">
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 17</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 18</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 19</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 20</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 21</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 22</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 23</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 24</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eventos -->
+            <div class="area">
+                <h2>Eventos</h2>
+                <div class="gestor-vice">
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Gestor Eventos">
+                        <p>Gestor</p>
+                    </div>
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Vice Eventos">
+                        <p>Vice</p>
+                    </div>
+                </div>
+                <div class="funcionais">
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 25</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 26</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 27</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 28</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 29</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 30</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 31</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 32</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RH -->
+            <div class="area">
+                <h2>RH</h2>
+                <div class="gestor-vice">
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Gestor RH">
+                        <p>Gestor</p>
+                    </div>
+                    <div class="pessoa">
+                        <img src="https://via.placeholder.com/100" alt="Vice RH">
+                        <p>Vice</p>
+                    </div>
+                </div>
+                <div class="funcionais">
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 33</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 34</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 35</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 36</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 37</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 38</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 39</p>
+                    </div>
+                    <div class="pessoa"><img src="https://via.placeholder.com/100">
+                        <p>Func 40</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

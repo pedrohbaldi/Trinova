@@ -1,0 +1,20 @@
+trinova.company 10% de desconto em artigos esportivos durante o mês de maio.
+Em parceria com a incrível Pri Heldes, que segue dando show nas quadras mesmo grávida, uma verdadeira inspiração de força, garra e amor pelo esporte. A Centauro preparou uma ação especial para homenagear todas as mães que fazem parte da nossa jornada.
+• Quer garantir 10% de desconto em produtos selecionados da Centauro?
+I É simples: apresente uma foto com a sua mãe, ou você que é mãe apresente uma foto com seu filho em qualquer loja física da Centauro e ganhe o desconto na hora!
+É a nossa forma de celebrar não só as mães, mas também o poder transformador do esporte em família.
+Porque quando o amor e o movimento caminham juntos, o resultado é sempre vitória!
+
+<section class="contact-container">
+        <h2>Mande uma mensagem</h2>
+        <p>
+          Envie sua mensagem em até 4 horas. Um especialista entrará em
+          contato.
+        </p>
+        <form>
+          <input type="text" name="name" id="name" placeholder="Seu nome" />
+          <input type="email" name="email" id="email" placeholder="Seu e-mail" />
+          <textarea name="message" id="message" placeholder="Descreva o que precisa ou seu projeto..."></textarea>
+          <input type="Submit" value="Enviar" />
+        </form>
+      </section>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carrossel 3D com Laterais</title>
+    <style>
+        body {
+            background: #111;
+            font-family: sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .carrossel {
+            perspective: 1200px;
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin: 80px auto;
+            position: relative;
+            user-select: none;
+        }
+
+        .carrossel-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            cursor: default;
+        }
+
+        .carrossel-item {
+            position: absolute;
+            width: 300px;
+            height: 500px;
+            left: 20%;
+            top: 10%;
+            backface-visibility: hidden;
+            transition: transform 1s, opacity 1s;
+            opacity: 0;
+            cursor: default;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            pointer-events: none; /* evita clique nas imagens invisíveis */
+        }
+
+        .carrossel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+            pointer-events: none;
+            /* evita conflito no clique */
+        }
+
+        .carrossel-item.ativo {
+            opacity: 1;
+            cursor: default;
+            pointer-events: auto;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="carrossel">
+        <div class="carrossel-container">
+            <div class="carrossel-item">
+                <img src="/img/Insta.png" alt="Imagem 1" />
+            </div>
+            <div class="carrossel-item">
+                <img src="/img/Email.png" alt="Imagem 2" />
+            </div>
+            <div class="carrossel-item">
+                <img src="/img/Linkedin.png" alt="Imagem 3" />
+            </div>
+            <div class="carrossel-item">
+                <img src="/img/PriHelds.jpg" alt="Imagem 4" />
+            </div>
+            <div class="carrossel-item">
+                <img src="/img/Main_logo.jpg" alt="Imagem 5" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const itens = document.querySelectorAll('.carrossel-item');
+        const totalItens = itens.length;
+        const angulo = 60;
+        let indexAtual = 0;
+
+        function atualizarCarrossel() {
+            itens.forEach((item, index) => {
+                let offset = (index - indexAtual + totalItens) % totalItens;
+
+                let translateX = 0;
+                let translateZ = offset === 0 ? 300 : 0;
+                let opacity = 0;
+                let zIndex = 0;
+                let scale = 0.7;
+                let cursor = 'default';
+
+                if (offset === 0) {
+                    // imagem central
+                    translateX = 0;
+                    opacity = 1;
+                    zIndex = 10;
+                    scale = 1;
+                    cursor = 'default';
+                    item.style.pointerEvents = 'auto';
+                } else if (offset === 1) {
+                    // imagem à direita
+                    translateX = 200;  // mais para direita
+                    opacity = 0.8;
+                    zIndex = 5;
+                    scale = 0.85;
+                    cursor = 'pointer';
+                    item.style.pointerEvents = 'auto';
+                } else if (offset === totalItens - 1) {
+                    // imagem à esquerda
+                    translateX = -270; // mais para esquerda
+                    opacity = 0.8;
+                    zIndex = 5;
+                    scale = 0.85;
+                    cursor = 'pointer';
+                    item.style.pointerEvents = 'auto';
+                } else {
+                    // restante desaparece e sem clique
+                    opacity = 0;
+                    item.style.pointerEvents = 'none';
+                }
+
+                item.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) scale(${scale})`;
+                item.style.opacity = opacity;
+                item.style.zIndex = zIndex;
+                item.style.cursor = cursor;
+                item.classList.toggle('ativo', offset === 0);
+            });
+        }
+
+        function clickItemHandler(event) {
+            const clickedItem = event.currentTarget;
+            const clickedIndex = Array.from(itens).indexOf(clickedItem);
+
+            // clicou na direita
+            if ((clickedIndex - indexAtual + totalItens) % totalItens === 1) {
+                indexAtual = (indexAtual + 1) % totalItens;
+                atualizarCarrossel();
+            }
+            // clicou na esquerda
+            else if ((clickedIndex - indexAtual + totalItens) % totalItens === totalItens - 1) {
+                indexAtual = (indexAtual - 1 + totalItens) % totalItens;
+                atualizarCarrossel();
+            }
+        }
+
+        itens.forEach(item => item.addEventListener('click', clickItemHandler));
+
+        atualizarCarrossel();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campanhas | Trinova</title>
+  <link rel="stylesheet" href="campanhas.css" />
+  <link rel="shortcut icon" href="img/Main_logo.jpg" type="image/x-icon" />
+
+  <style>
+    .carrossel {
+      perspective: 1200px;
+      width: 490px;
+      height: 610px;
+      position: relative;
+      user-select: none;
+    }
+
+    .carrossel-2 {
+      perspective: 1200px;
+      width: 590px;
+      height: 600px;
+      position: relative;
+      user-select: none;
+    }
+
+    .carrossel-item {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      transition: transform 1s, opacity 1s;
+      opacity: 0;
+      cursor: default;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+
+    .carrossel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      display: block;
+      pointer-events: none;
+    }
+
+    .carrossel-item.ativo {
+      opacity: 1;
+      cursor: default;
+      pointer-events: auto;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <nav class="navbar-conteiner">
+      <a href="#">
+        <img src="img/Main_logo.jpg" alt="Logo Trinova" class="Logo_Trinova" />
+      </a>
+      <ul class="navbar-items">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="campanhas.html">Campanhas</a></li>
+        <li><a href="contatos.html">contatos</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <div class="section-flex">
+        <div class="carrossel carrossel-1">
+          <div class="carrossel-container">
+            <div class="carrossel-item">
+              <img src="img/PriHelds.jpg" alt="Imagem 1" />
+            </div>
+            <div class="carrossel-item">
+
+            </div>
+            <div class="carrossel-item">
+
+            </div>
+          </div>
+        </div>
+        <div class="text-block">
+          <h2>DIA DAS MÃES</h2>
+          <p>
+            Em parceria com a incrível Pri Heldes, que segue dando show nas quadras mesmo grávida, uma verdadeira
+            inspiração de força, garra e amor pelo esporte. A Centauro preparou uma ação especial para homenagear todas
+            as mães que fazem parte da nossa jornada. <br>
+            • Quer garantir 10% de desconto em produtos selecionados da Centauro? <br>
+            É simples: apresente uma foto com a sua mãe, ou você que é mãe apresente uma foto com seu filho em
+            qualquer loja física da Centauro e ganhe o desconto na hora!
+            É a nossa forma de celebrar não só as mães, mas também o poder transformador do esporte em família.
+            Porque quando o amor e o movimento caminham juntos, o resultado é sempre vitória!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="Divisoria">
+      <p>
+        Nossa missão é transformar ideias em experiências memoráveis. Cada
+        campanha é pensada com criatividade, dados e propósito para alcançar o
+        público certo.
+      </p>
+    </section>
+
+
+    <section>
+      <div class="section-flex section-flex-1">
+        <div class="text-block">
+          <h2>Doou sangue? Ganhou!</h2>
+          <p>
+            Ao doar sangue em um dos locais participantes da campanha, apresente seu comprovante de doação e ganhe um
+            produto exclusivo da Growth na hora! <br>
+
+            É isso mesmo: fez o bem e já sai com um presente por esse gesto que pode transformar vidas.
+            <br>
+
+            <br>
+            🩸 A doação é rápida, segura e essencial.
+            Você doa, salva vidas e ainda é reconhecido com um produto Growth.
+            Porque heróis merecem ser valorizados — mesmo sem capa.<br>
+            <br>
+            👉 Procure o hemocentro participante mais próximo, leve documento com foto e esteja alimentado.
+            <br>
+            Não pode doar? Compartilhe esse post. Você também salva vidas assim.
+          </p>
+        </div>
+        <div class="carrossel carrossel-2">
+          <div class="carrossel-container">
+            <div class="carrossel-item">
+              <img src="img/doe.jpeg" alt="Imagem 1" />
+            </div>
+            <div class="carrossel-item">
+              <img src="img/doe1.jpeg" alt="Imagem 3" />
+            </div>
+            <div class="carrossel-item">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-conteudo">
+        <p>&copy; Trinova 2025</p>
+        <div class="icones-footer">
+          <a href="https://www.instagram.com/trinova.company/"><img src="img/Insta.png" alt="Instagram" /></a>
+          <a href="#"><img src="img/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="img/email.png" alt="Email" /></a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function iniciarCarrossel(containerSelector) {
+      const container = document.querySelector(containerSelector);
+      const itens = container.querySelectorAll('.carrossel-item');
+      const totalItens = itens.length;
+      let indexAtual = 0;
+
+      function atualizarCarrossel() {
+        itens.forEach((item, index) => {
+          let offset = (index - indexAtual + totalItens) % totalItens;
+
+          let translateX = 0;
+          let translateZ = offset === 0 ? 300 : 0;
+          let opacity = 0;
+          let zIndex = 0;
+          let scale = 0.7;
+          let cursor = 'default';
+
+          if (offset === 0) {
+            translateX = 0;
+            opacity = 1;
+            zIndex = 10;
+            scale = 1;
+            cursor = 'default';
+            item.style.pointerEvents = 'auto';
+          } else if (offset === 1) {
+            translateX = 240;
+            opacity = 0.8;
+            zIndex = 5;
+            scale = 0.85;
+            cursor = 'pointer';
+            item.style.pointerEvents = 'auto';
+          } else if (offset === totalItens - 1) {
+            translateX = -230;
+            opacity = 0.8;
+            zIndex = 5;
+            scale = 0.85;
+            cursor = 'pointer';
+            item.style.pointerEvents = 'auto';
+          } else {
+            opacity = 0;
+            item.style.pointerEvents = 'none';
+          }
+
+          item.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) scale(${scale})`;
+          item.style.opacity = opacity;
+          item.style.zIndex = zIndex;
+          item.style.cursor = cursor;
+          item.classList.toggle('ativo', offset === 0);
+        });
+      }
+
+      function clickItemHandler(event) {
+        const clickedItem = event.currentTarget;
+        const clickedIndex = Array.from(itens).indexOf(clickedItem);
+
+        if ((clickedIndex - indexAtual + totalItens) % totalItens === 1) {
+          indexAtual = (indexAtual + 1) % totalItens;
+          atualizarCarrossel();
+        } else if ((clickedIndex - indexAtual + totalItens) % totalItens === totalItens - 1) {
+          indexAtual = (indexAtual - 1 + totalItens) % totalItens;
+          atualizarCarrossel();
+        }
+      }
+
+      itens.forEach(item => item.addEventListener('click', clickItemHandler));
+
+      atualizarCarrossel();
+    }
+
+    // 👉 Inicializa os dois carrosséis separadamente:
+    iniciarCarrossel('.carrossel-1');
+    iniciarCarrossel('.carrossel-2');
+
+  </script>
+</body>
+
+</html>
