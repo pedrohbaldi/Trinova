@@ -26,7 +26,7 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: relative;
+    position: fixed;
 }
 
 .Logo_Trinova {
